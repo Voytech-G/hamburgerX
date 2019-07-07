@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ikona animowana hamburger</title>
+    <style>
+        .hamburger {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 60px;
+            height: 45px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hamburger.active {
+            transform: rotate(-90deg);
+        }
+
+        span {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background-color: black;
+            left: 0;
+            transition: top 0.3s 0.3s, bottom 0.3s 0.3s, transform 0.3s 0.6s, opacity 0.3s 0.3s;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            top: calc(50% - 5px);
+            transform: rotate(45deg);
+        }
+
+        .hamburger span:nth-child(2) {
+            top: calc(50% - 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger span:nth-child(3) {
+            bottom: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            bottom: calc(50% - 5px);
+            transform: rotate(-45deg);
+        }
+
+        .hamburger.active {
+            transform: rotate(-90deg);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script>
+        // const ico = document.querySelector(".hamburger");
+        // ico.addEventListener('click', function () {
+        //     ico.classList.toggle("active");
+        // })
+        $('.hamburger').on("click", function () {
+            $(".hamburger").toggleClass("active");
+        })
+    </script>
+</body>
+
+</html>
